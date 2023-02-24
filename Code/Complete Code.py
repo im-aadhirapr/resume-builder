@@ -5,16 +5,16 @@ import re
 import string
 import pandas as pd
 import matplotlib.pyplot as plt
-%matplotlib inline
+#%matplotlib inline
 
 # Open pdf file
-pdfFileObj = open('Roberto Salazar - Resume.pdf','rb')
+pdfFileObj = open('./Files/cv Aathira.pdf','rb')
 
 # Read file
-pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+pdfReader = PyPDF2.PdfReader(pdfFileObj)
 
 # Get total number of pages
-num_pages = pdfReader.numPages
+num_pages = len(pdfReader.pages)
 
 # Initialize a count for the number of pages
 count = 0
@@ -24,9 +24,9 @@ text = ""
 
 # Extract text from every page on the file
 while count < num_pages:
-    pageObj = pdfReader.getPage(count)
+    pageObj = pdfReader.pages[count]
     count +=1
-    text += pageObj.extractText()
+    text += pageObj.extract_text()
     
 # Convert all strings to lowercase
 text = text.lower()
