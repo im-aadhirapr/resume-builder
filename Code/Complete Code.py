@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 #%matplotlib inline
 
 # Open pdf file
-pdfFileObj = open('./Files/cv Aathira.pdf','rb')
-
+pdfFileObj = open('./Files/Roberto Salazar - Resume.pdf','rb')
+#Roberto Salazar - Resume
 # Read file
 pdfReader = PyPDF2.PdfReader(pdfFileObj)
 
@@ -117,14 +117,20 @@ for area in terms.keys():
         
 # Create a data frame with the scores summary
 summary = pd.DataFrame(scores,index=terms.keys(),columns=['score']).sort_values(by='score',ascending=False)
-summary
+#summary
+print(summary)
+
+print('\nHighest Score')
+print('--------------')
+#picking the highest score from it
+print(summary[summary.score==summary.score.max()])
 
 # Create pie chart visualization
-pie = plt.figure(figsize=(10,10))
-plt.pie(summary['score'], labels=summary.index, explode = (0.1,0,0,0,0,0), autopct='%1.0f%%',shadow=True,startangle=90)
-plt.title('Industrial Engineering Candidate - Resume Decomposition by Areas')
-plt.axis('equal')
-plt.show()
+#pie = plt.figure(figsize=(10,10))
+#plt.pie(summary['score'], labels=summary.index, explode = (0.1,0,0,0,0,0), autopct='%1.0f%%',shadow=True,startangle=90)
+#plt.title('Industrial Engineering Candidate - Resume Decomposition by Areas')
+#plt.axis('equal')
+#plt.show()
 
 # Save pie chart as a .png file
-pie.savefig('resume_screening_results.png')
+#pie.savefig('resume_screening_results.png')
